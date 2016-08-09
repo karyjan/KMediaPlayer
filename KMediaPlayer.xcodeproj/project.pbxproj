@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		854FFC9F1D58177E0033A700 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFC9D1D58177E0033A700 /* AudioToolbox.framework */; };
+		854FFCA01D58177E0033A700 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFC9E1D58177E0033A700 /* CoreAudio.framework */; };
+		854FFCA31D5817880033A700 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCA11D5817880033A700 /* CoreVideo.framework */; };
+		854FFCA41D5817880033A700 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCA21D5817880033A700 /* VideoToolbox.framework */; };
+		854FFCA61D581AB10033A700 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCA51D581AB10033A700 /* AVFoundation.framework */; };
+		854FFCA91D581ADC0033A700 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCA71D581ADC0033A700 /* CoreMedia.framework */; };
+		854FFCAA1D581ADC0033A700 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCA81D581ADC0033A700 /* MediaPlayer.framework */; };
+		854FFCAC1D581AEC0033A700 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCAB1D581AEC0033A700 /* libstdc++.6.0.9.tbd */; };
+		854FFCAE1D581B0E0033A700 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCAD1D581B0E0033A700 /* libc++.1.tbd */; };
+		854FFCB01D581B3B0033A700 /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCAF1D581B3B0033A700 /* libz.1.tbd */; };
+		854FFCB21D581B450033A700 /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCB11D581B450033A700 /* libbz2.1.0.tbd */; };
+		854FFCB41D581B750033A700 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFCB31D581B750033A700 /* libiconv.2.4.0.tbd */; };
+		854FFCBD1D582D0C0033A700 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCB91D582D0C0033A700 /* MusicIndicator.m */; };
+		854FFCBE1D582D0C0033A700 /* MusicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCBB1D582D0C0033A700 /* MusicSlider.m */; };
+		854FFCC51D582D9E0033A700 /* NAKPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCC21D582D9E0033A700 /* NAKPlaybackIndicatorContentView.m */; };
+		854FFCC61D582D9E0033A700 /* NAKPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCC41D582D9E0033A700 /* NAKPlaybackIndicatorView.m */; };
+		854FFCCD1D5831440033A700 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCCB1D5831440033A700 /* AudioViewController.swift */; };
+		854FFCD01D5876940033A700 /* FileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCCF1D5876940033A700 /* FileParser.swift */; };
+		85E4B3901D59E73D00B1B2A5 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFC9A1D58168C0033A700 /* MobileVLCKit.framework */; };
+		85F181201D5429AC0055018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1811F1D5429AC0055018A /* AppDelegate.swift */; };
+		85F181221D5429AC0055018A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F181211D5429AC0055018A /* VideoViewController.swift */; };
+		85F181251D5429AC0055018A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85F181231D5429AC0055018A /* Main.storyboard */; };
+		85F181271D5429AC0055018A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F181261D5429AC0055018A /* Assets.xcassets */; };
+		85F1812A1D5429AC0055018A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85F181281D5429AC0055018A /* LaunchScreen.storyboard */; };
+		CD6E946C68FDC096848984EA /* Pods_KMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F756CEE10B8CF46EAEBDE91D /* Pods_KMediaPlayer.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5EDFC0EB55F60CDA43CB8977 /* Pods-KMediaPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMediaPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KMediaPlayer/Pods-KMediaPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		854FFC9A1D58168C0033A700 /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
+		854FFC9C1D58174C0033A700 /* KMediaPlayer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMediaPlayer-Bridging-Header.h"; sourceTree = "<group>"; };
+		854FFC9D1D58177E0033A700 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		854FFC9E1D58177E0033A700 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		854FFCA11D5817880033A700 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		854FFCA21D5817880033A700 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		854FFCA51D581AB10033A700 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		854FFCA71D581ADC0033A700 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		854FFCA81D581ADC0033A700 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		854FFCAB1D581AEC0033A700 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		854FFCAD1D581B0E0033A700 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		854FFCAF1D581B3B0033A700 /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		854FFCB11D581B450033A700 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
+		854FFCB31D581B750033A700 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		854FFCB81D582D0C0033A700 /* MusicIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicIndicator.h; sourceTree = "<group>"; };
+		854FFCB91D582D0C0033A700 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
+		854FFCBA1D582D0C0033A700 /* MusicSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSlider.h; sourceTree = "<group>"; };
+		854FFCBB1D582D0C0033A700 /* MusicSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSlider.m; sourceTree = "<group>"; };
+		854FFCC11D582D9E0033A700 /* NAKPlaybackIndicatorContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorContentView.h; sourceTree = "<group>"; };
+		854FFCC21D582D9E0033A700 /* NAKPlaybackIndicatorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorContentView.m; sourceTree = "<group>"; };
+		854FFCC31D582D9E0033A700 /* NAKPlaybackIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorView.h; sourceTree = "<group>"; };
+		854FFCC41D582D9E0033A700 /* NAKPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorView.m; sourceTree = "<group>"; };
+		854FFCCB1D5831440033A700 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		854FFCCF1D5876940033A700 /* FileParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileParser.swift; sourceTree = "<group>"; };
+		85F1811C1D5429AC0055018A /* KMediaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMediaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85F1811F1D5429AC0055018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		85F181211D5429AC0055018A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		85F181241D5429AC0055018A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85F181261D5429AC0055018A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85F181291D5429AC0055018A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85F1812B1D5429AC0055018A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BA1B0F0CAC94BFFA71A985C /* Pods-KMediaPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMediaPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMediaPlayer/Pods-KMediaPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		F756CEE10B8CF46EAEBDE91D /* Pods_KMediaPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMediaPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85F181191D5429AC0055018A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				854FFCB41D581B750033A700 /* libiconv.2.4.0.tbd in Frameworks */,
+				854FFCB21D581B450033A700 /* libbz2.1.0.tbd in Frameworks */,
+				854FFCB01D581B3B0033A700 /* libz.1.tbd in Frameworks */,
+				854FFCAE1D581B0E0033A700 /* libc++.1.tbd in Frameworks */,
+				854FFCAC1D581AEC0033A700 /* libstdc++.6.0.9.tbd in Frameworks */,
+				854FFCA91D581ADC0033A700 /* CoreMedia.framework in Frameworks */,
+				854FFCAA1D581ADC0033A700 /* MediaPlayer.framework in Frameworks */,
+				854FFCA61D581AB10033A700 /* AVFoundation.framework in Frameworks */,
+				854FFCA31D5817880033A700 /* CoreVideo.framework in Frameworks */,
+				854FFCA41D5817880033A700 /* VideoToolbox.framework in Frameworks */,
+				854FFC9F1D58177E0033A700 /* AudioToolbox.framework in Frameworks */,
+				854FFCA01D58177E0033A700 /* CoreAudio.framework in Frameworks */,
+				85E4B3901D59E73D00B1B2A5 /* MobileVLCKit.framework in Frameworks */,
+				CD6E946C68FDC096848984EA /* Pods_KMediaPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		456EBCC111E93372C462D066 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BA1B0F0CAC94BFFA71A985C /* Pods-KMediaPlayer.debug.xcconfig */,
+				5EDFC0EB55F60CDA43CB8977 /* Pods-KMediaPlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		854FFCB51D582CCC0033A700 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				854FFCB61D582D0C0033A700 /* Music */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		854FFCB61D582D0C0033A700 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				854FFCB81D582D0C0033A700 /* MusicIndicator.h */,
+				854FFCB91D582D0C0033A700 /* MusicIndicator.m */,
+				854FFCBA1D582D0C0033A700 /* MusicSlider.h */,
+				854FFCBB1D582D0C0033A700 /* MusicSlider.m */,
+			);
+			name = Music;
+			path = ../../ESTMusicPlayer/Enesco/Views/Music;
+			sourceTree = "<group>";
+		};
+		854FFCBF1D582D7E0033A700 /* ThirtParty */ = {
+			isa = PBXGroup;
+			children = (
+				854FFCC01D582D9E0033A700 /* NAKPlaybackIndicatorView */,
+			);
+			name = ThirtParty;
+			sourceTree = "<group>";
+		};
+		854FFCC01D582D9E0033A700 /* NAKPlaybackIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				854FFCC11D582D9E0033A700 /* NAKPlaybackIndicatorContentView.h */,
+				854FFCC21D582D9E0033A700 /* NAKPlaybackIndicatorContentView.m */,
+				854FFCC31D582D9E0033A700 /* NAKPlaybackIndicatorView.h */,
+				854FFCC41D582D9E0033A700 /* NAKPlaybackIndicatorView.m */,
+			);
+			name = NAKPlaybackIndicatorView;
+			path = ../../ESTMusicPlayer/Enesco/Thirdparty/NAKPlaybackIndicatorView;
+			sourceTree = "<group>";
+		};
+		854FFCC71D582DF60033A700 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85F181211D5429AC0055018A /* VideoViewController.swift */,
+				854FFCCB1D5831440033A700 /* AudioViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		854FFCD11D58769F0033A700 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				854FFCCF1D5876940033A700 /* FileParser.swift */,
+			);
+			name = helper;
+			sourceTree = "<group>";
+		};
+		85F181131D5429AC0055018A = {
+			isa = PBXGroup;
+			children = (
+				85F1811E1D5429AC0055018A /* KMediaPlayer */,
+				85F1811D1D5429AC0055018A /* Products */,
+				DAE098DA11C04265E0FA8768 /* Frameworks */,
+				456EBCC111E93372C462D066 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		85F1811D1D5429AC0055018A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85F1811C1D5429AC0055018A /* KMediaPlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85F1811E1D5429AC0055018A /* KMediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				854FFCD11D58769F0033A700 /* helper */,
+				854FFCC71D582DF60033A700 /* controllers */,
+				854FFCBF1D582D7E0033A700 /* ThirtParty */,
+				854FFCB51D582CCC0033A700 /* views */,
+				85F1811F1D5429AC0055018A /* AppDelegate.swift */,
+				85F181231D5429AC0055018A /* Main.storyboard */,
+				85F181261D5429AC0055018A /* Assets.xcassets */,
+				85F181281D5429AC0055018A /* LaunchScreen.storyboard */,
+				85F1812B1D5429AC0055018A /* Info.plist */,
+				854FFC9C1D58174C0033A700 /* KMediaPlayer-Bridging-Header.h */,
+			);
+			path = KMediaPlayer;
+			sourceTree = "<group>";
+		};
+		DAE098DA11C04265E0FA8768 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				854FFCB31D581B750033A700 /* libiconv.2.4.0.tbd */,
+				854FFCB11D581B450033A700 /* libbz2.1.0.tbd */,
+				854FFCAF1D581B3B0033A700 /* libz.1.tbd */,
+				854FFCAD1D581B0E0033A700 /* libc++.1.tbd */,
+				854FFCAB1D581AEC0033A700 /* libstdc++.6.0.9.tbd */,
+				854FFCA71D581ADC0033A700 /* CoreMedia.framework */,
+				854FFCA81D581ADC0033A700 /* MediaPlayer.framework */,
+				854FFCA51D581AB10033A700 /* AVFoundation.framework */,
+				854FFCA11D5817880033A700 /* CoreVideo.framework */,
+				854FFCA21D5817880033A700 /* VideoToolbox.framework */,
+				854FFC9D1D58177E0033A700 /* AudioToolbox.framework */,
+				854FFC9E1D58177E0033A700 /* CoreAudio.framework */,
+				854FFC9A1D58168C0033A700 /* MobileVLCKit.framework */,
+				F756CEE10B8CF46EAEBDE91D /* Pods_KMediaPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85F1811B1D5429AC0055018A /* KMediaPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85F1812E1D5429AC0055018A /* Build configuration list for PBXNativeTarget "KMediaPlayer" */;
+			buildPhases = (
+				D24C308C3DC7CCA7F38758E6 /* [CP] Check Pods Manifest.lock */,
+				85F181181D5429AC0055018A /* Sources */,
+				85F181191D5429AC0055018A /* Frameworks */,
+				85F1811A1D5429AC0055018A /* Resources */,
+				91FAEEEC942474C8DC9C2953 /* [CP] Embed Pods Frameworks */,
+				1BF26A7637DB9D197B198769 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KMediaPlayer;
+			productName = KMediaPlayer;
+			productReference = 85F1811C1D5429AC0055018A /* KMediaPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85F181141D5429AC0055018A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = kouyongzan;
+				TargetAttributes = {
+					85F1811B1D5429AC0055018A = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = HLFPE2W7TS;
+					};
+				};
+			};
+			buildConfigurationList = 85F181171D5429AC0055018A /* Build configuration list for PBXProject "KMediaPlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85F181131D5429AC0055018A;
+			productRefGroup = 85F1811D1D5429AC0055018A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85F1811B1D5429AC0055018A /* KMediaPlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85F1811A1D5429AC0055018A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85F1812A1D5429AC0055018A /* LaunchScreen.storyboard in Resources */,
+				85F181271D5429AC0055018A /* Assets.xcassets in Resources */,
+				85F181251D5429AC0055018A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BF26A7637DB9D197B198769 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KMediaPlayer/Pods-KMediaPlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91FAEEEC942474C8DC9C2953 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KMediaPlayer/Pods-KMediaPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D24C308C3DC7CCA7F38758E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85F181181D5429AC0055018A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				854FFCD01D5876940033A700 /* FileParser.swift in Sources */,
+				854FFCBE1D582D0C0033A700 /* MusicSlider.m in Sources */,
+				854FFCBD1D582D0C0033A700 /* MusicIndicator.m in Sources */,
+				85F181221D5429AC0055018A /* VideoViewController.swift in Sources */,
+				854FFCC51D582D9E0033A700 /* NAKPlaybackIndicatorContentView.m in Sources */,
+				854FFCC61D582D9E0033A700 /* NAKPlaybackIndicatorView.m in Sources */,
+				854FFCCD1D5831440033A700 /* AudioViewController.swift in Sources */,
+				85F181201D5429AC0055018A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		85F181231D5429AC0055018A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85F181241D5429AC0055018A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85F181281D5429AC0055018A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85F181291D5429AC0055018A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85F1812C1D5429AC0055018A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85F1812D1D5429AC0055018A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85F1812F1D5429AC0055018A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BA1B0F0CAC94BFFA71A985C /* Pods-KMediaPlayer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Huawen Caiti Education Technology Co., Ltd.";
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = KMediaPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FileBrowser/FileBrowser.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MobilePlayer/MobilePlayer.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/TabPageViewController/TabPageViewController.framework/Headers\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aixuetang.internal.mediaplayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d5f60a57-5192-45f4-9e8b-96f71967a967";
+				SWIFT_OBJC_BRIDGING_HEADER = "KMediaPlayer/KMediaPlayer-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		85F181301D5429AC0055018A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EDFC0EB55F60CDA43CB8977 /* Pods-KMediaPlayer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Huawen Caiti Education Technology Co., Ltd.";
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = KMediaPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FileBrowser/FileBrowser.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MobilePlayer/MobilePlayer.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/TabPageViewController/TabPageViewController.framework/Headers\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aixuetang.internal.mediaplayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d5f60a57-5192-45f4-9e8b-96f71967a967";
+				SWIFT_OBJC_BRIDGING_HEADER = "KMediaPlayer/KMediaPlayer-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85F181171D5429AC0055018A /* Build configuration list for PBXProject "KMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85F1812C1D5429AC0055018A /* Debug */,
+				85F1812D1D5429AC0055018A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85F1812E1D5429AC0055018A /* Build configuration list for PBXNativeTarget "KMediaPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85F1812F1D5429AC0055018A /* Debug */,
+				85F181301D5429AC0055018A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85F181141D5429AC0055018A /* Project object */;
+}
