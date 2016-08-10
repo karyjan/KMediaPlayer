@@ -100,7 +100,7 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
         progressSilder.value = mediaPlayer.position
-        duration = mediaPlayer.time.intValue + mediaPlayer.remainingTime.intValue
+        duration = Int32(mediaPlayer.time.intValue + abs(mediaPlayer.remainingTime.intValue))
         switch keyPath! {
         case "remainingTime":
             remaningLabel.text = mediaPlayer.remainingTime.stringValue
@@ -249,7 +249,6 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
     @IBAction func onValueChanged(sender: AnyObject) {
         
         if(!mediaPlayer.seekable || duration < 10) {return}
-
         
         playingBeforeSliding = mediaPlayer.playing
         if(playingBeforeSliding){
@@ -261,11 +260,10 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         
         let delta:Int = seekTime - mediaPlayer.time.intValue
         NSLog("the delta is :%i", delta)
-        if(delta > 0 ){ mediaPlayer.jumpForward(Int32(delta)) }
-        else { mediaPlayer.jumpBackward(Int32(abs(delta))) }
+        if(delta > 0 ){ mediaPlayer.jumpForward(Int32(delta/1000)) }
+        else { mediaPlayer.jumpBackward(Int32(abs(delta/1000))) }
         
         if(playingBeforeSliding){mediaPlayer.play()}
-        
         
     }
     
@@ -280,7 +278,10 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
     
     
     @IBAction func onDismissBtnClicked(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismissViewControllerAnimated(false, completion:{
+            if(self.mediaPlayer.playing){MusicIndicator.sharedInstance().state = .Playing}
+            else {MusicIndicator.sharedInstance().state = .Paused}
+            })
     }
     //#mark
     
@@ -289,6 +290,10 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         if(mediaPlayer.state == VLCMediaPlayerState.Stopped){
             playNext()
         }
+        
+        if(mediaPlayer.playing){MusicIndicator.sharedInstance().state = .Playing}
+        else {MusicIndicator.sharedInstance().state = .Paused}
+        
     }
 
     func mediaMetaDataDidChange(aMedia: VLCMedia!) {

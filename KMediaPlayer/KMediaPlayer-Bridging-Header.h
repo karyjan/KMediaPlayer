@@ -12,4 +12,5 @@
 #import "MobileVLCKit/MobileVLCKit.h"
 #import "MusicSlider.h"
 #import "MusicIndicator.h"
+#import "NAKPlaybackIndicatorView.h"
 #endif /* KMediaPlayer_Bridging_Header_h */

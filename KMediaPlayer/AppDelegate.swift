@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TabPageViewController
 import FileBrowser
 
 @UIApplicationMain
@@ -68,8 +67,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         }else{
             
             viewController.navigationItem.rightBarButtonItem = nil;
+            
+            let indicator:MusicIndicator = MusicIndicator.sharedInstance()
+            indicator.hidesWhenStopped = false;
+            indicator.tintColor = UIColor.redColor()
+            
+            if(indicator.state != .Playing){
+                indicator.state = .Playing;
+                indicator.state = .Stopped;
+            }else{
+                indicator.state = .Playing;
+            }
+            
+            let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(AppDelegate.onIndicatorClicked(_:)))
+            tapGesture.numberOfTapsRequired = 1
+            indicator.addGestureRecognizer(tapGesture)
+            
+            
+            let item:UIBarButtonItem = UIBarButtonItem(customView: indicator);
+            item.style = .Plain
+            item.target = self
+            item.action = #selector(AppDelegate.onIndicatorClicked(_:));
+            viewController.navigationItem.rightBarButtonItem = item;
+
         }
-        
     }
     
     func onDidSelectedFile(file:FBFile) -> Void {
@@ -80,13 +101,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
             let parentDirectory = file.filePath.URLByDeletingLastPathComponent;
             let medias:[VLCMedia] = FileParser.sharedInstance.filesForDirectory(parentDirectory!)
             
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            let audioVC = storyboard.instantiateViewControllerWithIdentifier("VCAudioPlayer") as! AudioViewController
-            audioVC.medias = medias
+            let audioVC = AudioViewController.sharedInstance
             
+//            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//            let audioVC =  storyboard.instantiateViewControllerWithIdentifier("VCAudioPlayer") as! AudioViewController
+            audioVC.medias = medias
             localFileBrowser.presentViewController(audioVC, animated: true, completion: nil)
         }
     }
-
+    
+    func onIndicatorClicked(sender:AnyObject?){
+        let audioVC = AudioViewController.sharedInstance
+        if (audioVC.medias!.count == 0) {
+            return
+        }
+        localFileBrowser.presentViewController(audioVC,animated: true,completion: nil);
+    }
 }
 
