@@ -9,4 +9,5 @@ target 'KMediaPlayer' do
     pod "TabPageViewController"
     pod 'FileBrowser', '~> 0.1'
     pod "MobilePlayer"
+#    pod "MobileVLCKit"
 end
