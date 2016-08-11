@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
     var window: UIWindow?
     var localFileBrowser = FileBrowser()
 
-
+    let audioExtensions:[String] = ["mp3","ape","flac","wav","m4a","wma","aac"]
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -125,16 +125,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
     func onDidSelectedFile(file:FBFile) -> Void {
         NSLog("%@,%@",file.displayName,file.filePath.absoluteString)
         
-        if(file.fileExtension?.lowercaseString == "ape" || file.fileExtension?.lowercaseString == "flac"){
+        if let fileExtension = file.fileExtension?.lowercaseString where audioExtensions.contains(fileExtension){
             
             let parentDirectory = file.filePath.URLByDeletingLastPathComponent;
             let medias:[VLCMedia] = FileParser.sharedInstance.filesForDirectory(parentDirectory!)
             
             let audioVC = AudioViewController.sharedInstance
-            
-//            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//            let audioVC =  storyboard.instantiateViewControllerWithIdentifier("VCAudioPlayer") as! AudioViewController
-            audioVC.medias = medias
+            let index = audioVC.indexOfMedia(file.filePath)
+            if(index > -1){
+                audioVC.playMediaAtIndex(index);
+            }else{
+                //            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                //            let audioVC =  storyboard.instantiateViewControllerWithIdentifier("VCAudioPlayer") as! AudioViewController
+                audioVC.medias = medias
+                let i = audioVC.indexOfMedia(file.filePath)
+                audioVC.playMediaAtIndex(i)
+            }
+
             localFileBrowser.presentViewController(audioVC, animated: true, completion: nil)
         }
     }

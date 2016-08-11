@@ -74,8 +74,9 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         self.navigationController?.navigationBarHidden = true
 
         mediaPlayer.addObserver(self,forKeyPath:"remainingTime",options: NSKeyValueObservingOptions.New, context: nil)
+        mediaPlayer.addObserver(self,forKeyPath:"time",options: NSKeyValueObservingOptions.New, context: nil)
+
         mediaPlayer.addObserver(self,forKeyPath:"isPlaying",options:NSKeyValueObservingOptions.New,context:nil)
-        mediaPlayer.addObserver(self,forKeyPath:"state",options:NSKeyValueObservingOptions.New,context:nil)
 
     }
     
@@ -83,8 +84,8 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         
         self.navigationController?.navigationBarHidden = false
         mediaPlayer.removeObserver(self,forKeyPath:"remainingTime")
+        mediaPlayer.removeObserver(self,forKeyPath:"time")
         mediaPlayer.removeObserver(self,forKeyPath:"isPlaying")
-        mediaPlayer.removeObserver(self,forKeyPath:"state")
     }
     
     override func viewDidLoad() {
@@ -105,24 +106,17 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         // Do any additional setup after loading the view.
         mediaPlayer.drawable = self.view
         mediaPlayer.delegate = self
-        playNext()
+        
+        if(currentIndex > -1) {playMediaAtIndex(currentIndex)}
+        else {playNext()}
     }
 
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
         progressSilder.value = mediaPlayer.position
-        duration = Int32(mediaPlayer.time.intValue + abs(mediaPlayer.remainingTime.intValue))
-        
-        
         switch keyPath! {
-        case "remainingTime":
-            let remainingTime = Int(abs(mediaPlayer.remainingTime.intValue)/1000)
-            let durationTime = Int(duration / 1000)
-            dispatch_async(dispatch_get_main_queue()) {
-                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = remainingTime
-                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationTime
-            }
+        case "remainingTime","time":
             remaningLabel.text = mediaPlayer.remainingTime.stringValue
             currentLabel.text = mediaPlayer.time.stringValue
             break
@@ -130,39 +124,20 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         case "isPlaying":
             setMusicIsPlaying()
             break
-            
-        case "state":
-//            if(mediaPlayer.state == VLCMediaPlayerState.Stopped){
-//                playNext()
-//            }
-            break
-            
         default:
             break
         }
         
     }
     
-    
     func playNext() -> Void {
         let media = getNextMedia()
-        if(media != nil){
-            media?.delegate = self
-            progressSilder.value = 0
-            mediaPlayer.media = media
-            mediaPlayer.play()
-        }
+        playMedia(media)
     }
-    
     
     func playPre() -> Void {
         let media = getPreMedia()
-        if(media != nil){
-            media?.delegate = self
-            progressSilder.value = 0
-            mediaPlayer.media = media
-            mediaPlayer.play()
-        }
+        playMedia(media)
     }
     
     func getPreMedia() -> VLCMedia? {
@@ -231,6 +206,34 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         }
     }
     
+    func indexOfMedia(path:NSURL) -> Int {
+        if(_medias.count == 0) {return -1}
+        for i in 0...(_medias.count - 1) {
+            let media:VLCMedia = _medias[i]
+            if(media.url.absoluteString.stringByRemovingPercentEncoding == path.absoluteString){
+                return i
+            }
+        }
+        return -1
+    }
+    
+    
+    func playMediaAtIndex(i:Int) {
+        if(_medias.count == 0 ) { return }
+        if(i < 0 || i > _medias.count - 1){return}
+        currentIndex = i;
+        let media = _medias[currentIndex]
+        playMedia(media)
+    }
+    
+    func playMedia(media:VLCMedia?) -> Void {
+        if(media != nil){
+            media?.delegate = self
+            if(progressSilder != nil) {progressSilder.value = 0}
+            mediaPlayer.media = media
+            mediaPlayer.play()
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -316,17 +319,26 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         
     }
     
+    func mediaPlayerTimeChanged(aNotification: NSNotification!) {
+        duration = Int32(mediaPlayer.time.intValue + abs(mediaPlayer.remainingTime.intValue))
+        let currentTime = Int(mediaPlayer.time.intValue/1000)
+        let durationTime = Int(duration / 1000)
+        dispatch_async(dispatch_get_main_queue()) {
+            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
+            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationTime
+        }
+    }
+    
     func mediaDidFinishParsing(aMedia: VLCMedia!) {
         if(aMedia != nil){
             titleLabel.text = aMedia.metadataForKey("title")
             artistLabel.text = aMedia.metadataForKey("artist")
             albumLabel.text = aMedia.metadataForKey("album")
             
-            let songInfo: NSDictionary = [
-                MPMediaItemPropertyTitle: aMedia.metadataForKey("title"),
-                MPMediaItemPropertyArtist: aMedia.metadataForKey("artist"),
-                MPMediaItemPropertyAlbumTitle: aMedia.metadataForKey("album")
-            ]
+            let songInfo: NSMutableDictionary = NSMutableDictionary()
+            if(aMedia.metaDictionary.indexForKey("title") != nil){songInfo[MPMediaItemPropertyTitle] = aMedia.metadataForKey("title")}
+            if(aMedia.metaDictionary.indexForKey("artist") != nil){songInfo[MPMediaItemPropertyArtist] = aMedia.metadataForKey("artist")}
+            if(aMedia.metaDictionary.indexForKey("album") != nil){songInfo[MPMediaItemPropertyAlbumTitle] = aMedia.metadataForKey("album")}
             
             MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo as! [String : AnyObject]
         }
