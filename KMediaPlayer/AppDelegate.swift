@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
+        
         window = UIWindow()
         window?.bounds = UIScreen.mainScreen().bounds
         
@@ -59,6 +62,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        if (event?.type == UIEventType.RemoteControl) {
+            let subtype = event!.subtype
+            switch subtype {
+            case .RemoteControlTogglePlayPause,.RemoteControlPlay,.RemoteControlPause:
+                AudioViewController.sharedInstance.onToggleBtnClicked(nil)
+                NSLog("继续播放")
+                break
+            case .RemoteControlNextTrack:
+                AudioViewController.sharedInstance.playNext()
+                NSLog("下一曲");
+                break
+            case .RemoteControlPreviousTrack:
+                AudioViewController.sharedInstance.playPre()
+                NSLog("上一曲")
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    
     
     func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
         

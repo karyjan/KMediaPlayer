@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDelegate{
     
@@ -90,6 +92,16 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         self.view.backgroundColor = UIColor.cyanColor()
         
         progressSilder.value = 0
+        
+        do{
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback,withOptions:AVAudioSessionCategoryOptions.AllowBluetooth)
+            try AVAudioSession.sharedInstance().setActive(true)
+        }
+        catch let error as NSError
+        {
+            print(error)
+        }
+                
         // Do any additional setup after loading the view.
         mediaPlayer.drawable = self.view
         mediaPlayer.delegate = self
@@ -101,8 +113,16 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         
         progressSilder.value = mediaPlayer.position
         duration = Int32(mediaPlayer.time.intValue + abs(mediaPlayer.remainingTime.intValue))
+        
+        
         switch keyPath! {
         case "remainingTime":
+            let remainingTime = Int(abs(mediaPlayer.remainingTime.intValue)/1000)
+            let durationTime = Int(duration / 1000)
+            dispatch_async(dispatch_get_main_queue()) {
+                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = remainingTime
+                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = durationTime
+            }
             remaningLabel.text = mediaPlayer.remainingTime.stringValue
             currentLabel.text = mediaPlayer.time.stringValue
             break
@@ -112,9 +132,9 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
             break
             
         case "state":
-            if(mediaPlayer.state == VLCMediaPlayerState.Stopped){
-                playNext()
-            }
+//            if(mediaPlayer.state == VLCMediaPlayerState.Stopped){
+//                playNext()
+//            }
             break
             
         default:
@@ -236,12 +256,12 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
             }
     }
     
-    @IBAction func onPreBtnClicked(sender: AnyObject) {
+    @IBAction func onPreBtnClicked(sender: AnyObject?) {
         playPre()
     }
     
     
-    @IBAction func onNextBtnClicked(sender: AnyObject) {
+    @IBAction func onNextBtnClicked(sender: AnyObject?) {
         playNext()
     }
     
@@ -268,7 +288,7 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
     }
     
     
-    @IBAction func onToggleBtnClicked(sender: AnyObject) {
+    @IBAction func onToggleBtnClicked(sender: AnyObject?) {
         if(mediaPlayer.playing){
             mediaPlayer.pause()
         }else{
@@ -295,12 +315,20 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         else {MusicIndicator.sharedInstance().state = .Paused}
         
     }
-
-    func mediaMetaDataDidChange(aMedia: VLCMedia!) {
+    
+    func mediaDidFinishParsing(aMedia: VLCMedia!) {
         if(aMedia != nil){
             titleLabel.text = aMedia.metadataForKey("title")
             artistLabel.text = aMedia.metadataForKey("artist")
             albumLabel.text = aMedia.metadataForKey("album")
+            
+            let songInfo: NSDictionary = [
+                MPMediaItemPropertyTitle: aMedia.metadataForKey("title"),
+                MPMediaItemPropertyArtist: aMedia.metadataForKey("artist"),
+                MPMediaItemPropertyAlbumTitle: aMedia.metadataForKey("album")
+            ]
+            
+            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo as! [String : AnyObject]
         }
     }
     
