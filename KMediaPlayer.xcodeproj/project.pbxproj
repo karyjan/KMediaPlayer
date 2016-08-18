@@ -25,6 +25,29 @@
 		854FFCC61D582D9E0033A700 /* NAKPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCC41D582D9E0033A700 /* NAKPlaybackIndicatorView.m */; };
 		854FFCCD1D5831440033A700 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCCB1D5831440033A700 /* AudioViewController.swift */; };
 		854FFCD01D5876940033A700 /* FileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FFCCF1D5876940033A700 /* FileParser.swift */; };
+		85CD5EA51D62B219000FC3F3 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E8E1D62B219000FC3F3 /* Bar.swift */; };
+		85CD5EA61D62B219000FC3F3 /* BarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E8F1D62B219000FC3F3 /* BarConfig.swift */; };
+		85CD5EA71D62B219000FC3F3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E901D62B219000FC3F3 /* Button.swift */; };
+		85CD5EA81D62B219000FC3F3 /* ButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E911D62B219000FC3F3 /* ButtonConfig.swift */; };
+		85CD5EA91D62B219000FC3F3 /* ClosureSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E921D62B219000FC3F3 /* ClosureSupport.swift */; };
+		85CD5EAA1D62B219000FC3F3 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E931D62B219000FC3F3 /* Element.swift */; };
+		85CD5EAB1D62B219000FC3F3 /* ElementConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E941D62B219000FC3F3 /* ElementConfig.swift */; };
+		85CD5EAC1D62B219000FC3F3 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E951D62B219000FC3F3 /* Label.swift */; };
+		85CD5EAD1D62B219000FC3F3 /* LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E961D62B219000FC3F3 /* LabelConfig.swift */; };
+		85CD5EAE1D62B219000FC3F3 /* MobilePlayerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E971D62B219000FC3F3 /* MobilePlayerConfig.swift */; };
+		85CD5EAF1D62B219000FC3F3 /* MobilePlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E981D62B219000FC3F3 /* MobilePlayerControlsView.swift */; };
+		85CD5EB01D62B219000FC3F3 /* MobilePlayerNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E991D62B219000FC3F3 /* MobilePlayerNotification.swift */; };
+		85CD5EB11D62B219000FC3F3 /* MobilePlayerOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E9A1D62B219000FC3F3 /* MobilePlayerOverlayViewController.swift */; };
+		85CD5EB21D62B219000FC3F3 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E9B1D62B219000FC3F3 /* Slider.swift */; };
+		85CD5EB31D62B219000FC3F3 /* SliderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E9C1D62B219000FC3F3 /* SliderConfig.swift */; };
+		85CD5EB41D62B219000FC3F3 /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E9D1D62B219000FC3F3 /* StateHelper.swift */; };
+		85CD5EB51D62B219000FC3F3 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E9E1D62B219000FC3F3 /* ToggleButton.swift */; };
+		85CD5EB61D62B219000FC3F3 /* ToggleButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5E9F1D62B219000FC3F3 /* ToggleButtonConfig.swift */; };
+		85CD5EB71D62B219000FC3F3 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5EA01D62B219000FC3F3 /* UIColor+Hex.swift */; };
+		85CD5EB81D62B219000FC3F3 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5EA11D62B219000FC3F3 /* VolumeView.swift */; };
+		85CD5EB91D62B219000FC3F3 /* WatermarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5EA21D62B219000FC3F3 /* WatermarkConfig.swift */; };
+		85CD5EBA1D62B219000FC3F3 /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5EA31D62B219000FC3F3 /* WatermarkViewController.swift */; };
+		85CD5EBB1D62B219000FC3F3 /* YoutubeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CD5EA41D62B219000FC3F3 /* YoutubeParser.swift */; };
 		85E4B3901D59E73D00B1B2A5 /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FFC9A1D58168C0033A700 /* MobileVLCKit.framework */; };
 		85F181201D5429AC0055018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1811F1D5429AC0055018A /* AppDelegate.swift */; };
 		85F181221D5429AC0055018A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F181211D5429AC0055018A /* VideoViewController.swift */; };
@@ -33,6 +56,19 @@
 		85F1812A1D5429AC0055018A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85F181281D5429AC0055018A /* LaunchScreen.storyboard */; };
 		CD6E946C68FDC096848984EA /* Pods_KMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F756CEE10B8CF46EAEBDE91D /* Pods_KMediaPlayer.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		85CD5E2E1D62A752000FC3F3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5EDFC0EB55F60CDA43CB8977 /* Pods-KMediaPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMediaPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KMediaPlayer/Pods-KMediaPlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +96,29 @@
 		854FFCC41D582D9E0033A700 /* NAKPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorView.m; sourceTree = "<group>"; };
 		854FFCCB1D5831440033A700 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		854FFCCF1D5876940033A700 /* FileParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileParser.swift; sourceTree = "<group>"; };
+		85CD5E8E1D62B219000FC3F3 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		85CD5E8F1D62B219000FC3F3 /* BarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarConfig.swift; sourceTree = "<group>"; };
+		85CD5E901D62B219000FC3F3 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		85CD5E911D62B219000FC3F3 /* ButtonConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonConfig.swift; sourceTree = "<group>"; };
+		85CD5E921D62B219000FC3F3 /* ClosureSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureSupport.swift; sourceTree = "<group>"; };
+		85CD5E931D62B219000FC3F3 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		85CD5E941D62B219000FC3F3 /* ElementConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementConfig.swift; sourceTree = "<group>"; };
+		85CD5E951D62B219000FC3F3 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		85CD5E961D62B219000FC3F3 /* LabelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelConfig.swift; sourceTree = "<group>"; };
+		85CD5E971D62B219000FC3F3 /* MobilePlayerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePlayerConfig.swift; sourceTree = "<group>"; };
+		85CD5E981D62B219000FC3F3 /* MobilePlayerControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePlayerControlsView.swift; sourceTree = "<group>"; };
+		85CD5E991D62B219000FC3F3 /* MobilePlayerNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePlayerNotification.swift; sourceTree = "<group>"; };
+		85CD5E9A1D62B219000FC3F3 /* MobilePlayerOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePlayerOverlayViewController.swift; sourceTree = "<group>"; };
+		85CD5E9B1D62B219000FC3F3 /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		85CD5E9C1D62B219000FC3F3 /* SliderConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderConfig.swift; sourceTree = "<group>"; };
+		85CD5E9D1D62B219000FC3F3 /* StateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
+		85CD5E9E1D62B219000FC3F3 /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		85CD5E9F1D62B219000FC3F3 /* ToggleButtonConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButtonConfig.swift; sourceTree = "<group>"; };
+		85CD5EA01D62B219000FC3F3 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		85CD5EA11D62B219000FC3F3 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		85CD5EA21D62B219000FC3F3 /* WatermarkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkConfig.swift; sourceTree = "<group>"; };
+		85CD5EA31D62B219000FC3F3 /* WatermarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
+		85CD5EA41D62B219000FC3F3 /* YoutubeParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeParser.swift; sourceTree = "<group>"; };
 		85F1811C1D5429AC0055018A /* KMediaPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMediaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F1811F1D5429AC0055018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85F181211D5429AC0055018A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +167,7 @@
 		854FFCB51D582CCC0033A700 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				85CD5E8D1D62B118000FC3F3 /* Video */,
 				854FFCB61D582D0C0033A700 /* Music */,
 			);
 			name = views;
@@ -149,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				85F181211D5429AC0055018A /* VideoViewController.swift */,
+				85CD5E9A1D62B219000FC3F3 /* MobilePlayerOverlayViewController.swift */,
 				854FFCCB1D5831440033A700 /* AudioViewController.swift */,
 			);
 			name = controllers;
@@ -160,6 +221,35 @@
 				854FFCCF1D5876940033A700 /* FileParser.swift */,
 			);
 			name = helper;
+			sourceTree = "<group>";
+		};
+		85CD5E8D1D62B118000FC3F3 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				85CD5E8E1D62B219000FC3F3 /* Bar.swift */,
+				85CD5E8F1D62B219000FC3F3 /* BarConfig.swift */,
+				85CD5E901D62B219000FC3F3 /* Button.swift */,
+				85CD5E911D62B219000FC3F3 /* ButtonConfig.swift */,
+				85CD5E921D62B219000FC3F3 /* ClosureSupport.swift */,
+				85CD5E931D62B219000FC3F3 /* Element.swift */,
+				85CD5E941D62B219000FC3F3 /* ElementConfig.swift */,
+				85CD5E951D62B219000FC3F3 /* Label.swift */,
+				85CD5E961D62B219000FC3F3 /* LabelConfig.swift */,
+				85CD5E971D62B219000FC3F3 /* MobilePlayerConfig.swift */,
+				85CD5E981D62B219000FC3F3 /* MobilePlayerControlsView.swift */,
+				85CD5E991D62B219000FC3F3 /* MobilePlayerNotification.swift */,
+				85CD5E9B1D62B219000FC3F3 /* Slider.swift */,
+				85CD5E9C1D62B219000FC3F3 /* SliderConfig.swift */,
+				85CD5E9D1D62B219000FC3F3 /* StateHelper.swift */,
+				85CD5E9E1D62B219000FC3F3 /* ToggleButton.swift */,
+				85CD5E9F1D62B219000FC3F3 /* ToggleButtonConfig.swift */,
+				85CD5EA01D62B219000FC3F3 /* UIColor+Hex.swift */,
+				85CD5EA11D62B219000FC3F3 /* VolumeView.swift */,
+				85CD5EA21D62B219000FC3F3 /* WatermarkConfig.swift */,
+				85CD5EA31D62B219000FC3F3 /* WatermarkViewController.swift */,
+				85CD5EA41D62B219000FC3F3 /* YoutubeParser.swift */,
+			);
+			name = Video;
 			sourceTree = "<group>";
 		};
 		85F181131D5429AC0055018A = {
@@ -231,6 +321,7 @@
 				85F1811A1D5429AC0055018A /* Resources */,
 				91FAEEEC942474C8DC9C2953 /* [CP] Embed Pods Frameworks */,
 				1BF26A7637DB9D197B198769 /* [CP] Copy Pods Resources */,
+				85CD5E2E1D62A752000FC3F3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,14 +437,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85CD5EAE1D62B219000FC3F3 /* MobilePlayerConfig.swift in Sources */,
 				854FFCD01D5876940033A700 /* FileParser.swift in Sources */,
+				85CD5EA61D62B219000FC3F3 /* BarConfig.swift in Sources */,
+				85CD5EB71D62B219000FC3F3 /* UIColor+Hex.swift in Sources */,
+				85CD5EB61D62B219000FC3F3 /* ToggleButtonConfig.swift in Sources */,
 				854FFCBE1D582D0C0033A700 /* MusicSlider.m in Sources */,
 				854FFCBD1D582D0C0033A700 /* MusicIndicator.m in Sources */,
+				85CD5EB41D62B219000FC3F3 /* StateHelper.swift in Sources */,
+				85CD5EB91D62B219000FC3F3 /* WatermarkConfig.swift in Sources */,
 				85F181221D5429AC0055018A /* VideoViewController.swift in Sources */,
 				854FFCC51D582D9E0033A700 /* NAKPlaybackIndicatorContentView.m in Sources */,
+				85CD5EAD1D62B219000FC3F3 /* LabelConfig.swift in Sources */,
+				85CD5EAC1D62B219000FC3F3 /* Label.swift in Sources */,
+				85CD5EB01D62B219000FC3F3 /* MobilePlayerNotification.swift in Sources */,
 				854FFCC61D582D9E0033A700 /* NAKPlaybackIndicatorView.m in Sources */,
+				85CD5EB81D62B219000FC3F3 /* VolumeView.swift in Sources */,
 				854FFCCD1D5831440033A700 /* AudioViewController.swift in Sources */,
+				85CD5EBA1D62B219000FC3F3 /* WatermarkViewController.swift in Sources */,
+				85CD5EB31D62B219000FC3F3 /* SliderConfig.swift in Sources */,
+				85CD5EB21D62B219000FC3F3 /* Slider.swift in Sources */,
+				85CD5EA91D62B219000FC3F3 /* ClosureSupport.swift in Sources */,
+				85CD5EB51D62B219000FC3F3 /* ToggleButton.swift in Sources */,
+				85CD5EA51D62B219000FC3F3 /* Bar.swift in Sources */,
+				85CD5EAF1D62B219000FC3F3 /* MobilePlayerControlsView.swift in Sources */,
+				85CD5EBB1D62B219000FC3F3 /* YoutubeParser.swift in Sources */,
 				85F181201D5429AC0055018A /* AppDelegate.swift in Sources */,
+				85CD5EA71D62B219000FC3F3 /* Button.swift in Sources */,
+				85CD5EAA1D62B219000FC3F3 /* Element.swift in Sources */,
+				85CD5EB11D62B219000FC3F3 /* MobilePlayerOverlayViewController.swift in Sources */,
+				85CD5EAB1D62B219000FC3F3 /* ElementConfig.swift in Sources */,
+				85CD5EA81D62B219000FC3F3 /* ButtonConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

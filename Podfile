@@ -6,8 +6,8 @@ target 'KMediaPlayer' do
   use_frameworks!
 
   # Pods for KMediaPlayer
-    pod "TabPageViewController"
+#    pod "TabPageViewController"
     pod 'FileBrowser', '~> 0.1'
-    pod "MobilePlayer"
+#    pod "MobilePlayer"
 #    pod "MobileVLCKit"
 end
