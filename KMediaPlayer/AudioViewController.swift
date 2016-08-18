@@ -75,7 +75,6 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
 
         mediaPlayer.addObserver(self,forKeyPath:"remainingTime",options: NSKeyValueObservingOptions.New, context: nil)
         mediaPlayer.addObserver(self,forKeyPath:"time",options: NSKeyValueObservingOptions.New, context: nil)
-
         mediaPlayer.addObserver(self,forKeyPath:"isPlaying",options:NSKeyValueObservingOptions.New,context:nil)
 
     }

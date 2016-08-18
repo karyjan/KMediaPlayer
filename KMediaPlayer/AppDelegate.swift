@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
     var localFileBrowser = FileBrowser()
 
     let audioExtensions:[String] = ["mp3","ape","flac","wav","m4a","wma","aac"]
+    let videoExtensions:[String] = ["mp4","mov","mtk","avi","m4v","wmv","mpeg"]
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -143,6 +145,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UINavigationControllerDele
             }
 
             localFileBrowser.presentViewController(audioVC, animated: true, completion: nil)
+        }
+        
+        if let fileExtension = file.fileExtension?.lowercaseString where videoExtensions.contains(fileExtension){
+            
+            let videoVC = VideoViewController(contentURL: file.filePath)
+            localFileBrowser.presentViewController(videoVC, animated: true, completion: nil)
+            videoVC.play()
         }
     }
     
