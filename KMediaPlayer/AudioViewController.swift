@@ -76,6 +76,8 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         mediaPlayer.addObserver(self,forKeyPath:"remainingTime",options: NSKeyValueObservingOptions.New, context: nil)
         mediaPlayer.addObserver(self,forKeyPath:"time",options: NSKeyValueObservingOptions.New, context: nil)
         mediaPlayer.addObserver(self,forKeyPath:"isPlaying",options:NSKeyValueObservingOptions.New,context:nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AudioViewController.onSessionInterruption(_:)) , name: AVAudioSessionInterruptionNotification, object: nil)
 
     }
     
@@ -85,6 +87,7 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
         mediaPlayer.removeObserver(self,forKeyPath:"remainingTime")
         mediaPlayer.removeObserver(self,forKeyPath:"time")
         mediaPlayer.removeObserver(self,forKeyPath:"isPlaying")
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: AVAudioSessionInterruptionNotification, object: nil)
     }
     
     override func viewDidLoad() {
@@ -127,6 +130,42 @@ class AudioViewController: UIViewController ,VLCMediaDelegate ,VLCMediaPlayerDel
             break
         }
         
+    }
+    
+    func onSessionInterruption(notification: NSNotification) -> Void {
+        if notification.name == AVAudioSessionInterruptionNotification && notification.userInfo != nil {
+            var info = notification.userInfo!
+            var intValue: UInt = 0
+            print(info)
+            
+            (info[AVAudioSessionInterruptionTypeKey] as! NSValue).getValue(&intValue)
+            if let type = AVAudioSessionInterruptionType(rawValue: intValue){
+                switch type{
+                case .Began:
+                    
+                    do{
+                        try AVAudioSession.sharedInstance().setActive(false)
+                    }
+                    catch let error as NSError
+                    {
+                        print(error)
+                    }
+                    mediaPlayer.pause()
+                    break
+              
+                case .Ended:
+                    do{
+                        try AVAudioSession.sharedInstance().setActive(true)
+                    }
+                    catch let error as NSError
+                    {
+                        print(error)
+                    }
+                    mediaPlayer.play()
+                    break
+                }
+            }
+        }
     }
     
     func playNext() -> Void {
